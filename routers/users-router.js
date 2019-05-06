@@ -5,7 +5,7 @@ const protected = require("../auth/protected-middleware.js");
 
 // ======== GET ALL USERS
 usersRouter.get("/", protected, (req, res) => {
-//res.send("One moment!")
+  //res.send("One moment!")
   usersDb
     .find()
     .then(users => {

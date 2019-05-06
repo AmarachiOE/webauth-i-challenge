@@ -21,11 +21,9 @@ function protected(req, res, next) {
         }
       })
       .catch(err => {
-        res
-          .status(500)
-          .json({
-            error: "Something went wrong. Unable to validate your credentials."
-          });
+        res.status(500).json({
+          error: "Something went wrong. Unable to validate your credentials."
+        });
       });
   } else {
     res.status(401).json({ error: "Invalid credentials. Access denied." });

@@ -2,21 +2,21 @@
 
 module.exports = {
   development: {
-    client: 'sqlite3',
+    client: "sqlite3",
     useNullAsDefault: true,
     connection: {
-      filename: './database/webauth-i.db3',
+      filename: "./database/webauth-i.db3"
     },
     pool: {
       afterCreate: (conn, done) => {
-        conn.run('PRAGMA foreign_keys = ON', done);
-      },
+        conn.run("PRAGMA foreign_keys = ON", done);
+      }
     },
     migrations: {
-      directory: './database/migrations',
+      directory: "./database/migrations"
     },
     seeds: {
-      directory: './database/seeds',
-    },
-  },
+      directory: "./database/seeds"
+    }
+  }
 };
