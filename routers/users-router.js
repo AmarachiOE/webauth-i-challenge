@@ -1,10 +1,10 @@
 const bcrypt = require("bcryptjs");
 const usersRouter = require("express").Router();
 const usersDb = require("../database/helpers/users-model.js");
-
+const protected = require("../auth/protected-middleware.js");
 
 // ======== GET ALL USERS
-usersRouter.get("/", (req, res) => {
+usersRouter.get("/", protected, (req, res) => {
 //res.send("One moment!")
   usersDb
     .find()
