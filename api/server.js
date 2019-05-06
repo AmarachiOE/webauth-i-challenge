@@ -14,11 +14,12 @@ const server = express();
 server.use(helmet());
 server.use(express.json());
 
-// Endpoints
+// ========= Endpoints
 server.get("/", (req, res) => {
   res.send("Welcome to Web Authorization I Challenge!");
 });
 
+// Register
 server.post("/api/register", (req, res) => {
   let user = req.body;
 
@@ -44,6 +45,7 @@ server.post("/api/register", (req, res) => {
   }
 });
 
+// Login
 server.post("/api/login", (req, res) => {
   let { username, password } = req.body;
 

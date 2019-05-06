@@ -1,5 +1,7 @@
+const bcrypt = require("bcryptjs");
 const usersRouter = require("express").Router();
 const usersDb = require("../database/helpers/users-model.js");
+
 
 // ======== GET ALL USERS
 usersRouter.get("/", (req, res) => {
