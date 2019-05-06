@@ -3,8 +3,9 @@ const usersDb = require("../database/helpers/users-model.js");
 
 // ======== GET ALL USERS
 usersRouter.get("/", (req, res) => {
+//res.send("One moment!")
   usersDb
-    .get()
+    .find()
     .then(users => {
       res.status(200).json(users);
     })
