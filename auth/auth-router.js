@@ -1,5 +1,8 @@
+// Packages
 const bcrypt = require("bcryptjs");
 const authRouter = require("express").Router();
+
+// Data
 const usersDb = require("../database/helpers/users-model.js");
 
 // for endpoints beginning with /api/auth
