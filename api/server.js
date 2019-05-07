@@ -1,7 +1,7 @@
 // Packages
 const express = require("express");
 const helmet = require("helmet");
-const bcrypt = require("bcryptjs");
+const session = require("express-session");
 
 // Routers
 const usersRouter = require("../users/users-router");
