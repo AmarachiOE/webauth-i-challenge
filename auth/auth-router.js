@@ -23,6 +23,7 @@ authRouter.post("/register", (req, res) => {
       usersDb
         .add(user)
         .then(result => {
+          req.session.username = result.username; // <<< or create session when successful login instead of on successful registration
           res.status(201).json(result);
         })
         .catch(err => {

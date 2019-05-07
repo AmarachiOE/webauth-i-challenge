@@ -1,15 +1,16 @@
 // Middleware
-// import data and bcrypt
+// don't need to import bcrypt and usersDb since using sessions
 
 const bcrypt = require("bcryptjs");
-const UsersDb = require("../database/helpers/users-model.js");
+const usersDb = require("../database/helpers/users-model.js");
 
 function protected(req, res, next) {
+
   const { username, password } = req.headers;
 
   if (username && password) {
     // from Login endpoint
-    UsersDb.findBy({ username })
+    usersDb.findBy({ username })
       .first()
       .then(user => {
         if (user && bcrypt.compareSync(password, user.password)) {
