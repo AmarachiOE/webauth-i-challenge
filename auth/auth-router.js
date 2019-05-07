@@ -68,6 +68,6 @@ authRouter.get("/logout", (req, res) => {
   } else {
     res.end(); // do nothing
   }
-})
+});
 
 module.exports = authRouter;

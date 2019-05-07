@@ -28,11 +28,10 @@ server.use(express.json());
 server.use(cors());
 server.use(session(sessionConfig));
 
-
 // Endpoints
 server.get("/", (req, res) => {
   // if user is logged in, show username, if not, show new stranger
-  const username = req.session.username || "new stranger"
+  const username = req.session.username || "new stranger";
   res.send(`What's up, ${username}?`);
 });
 
