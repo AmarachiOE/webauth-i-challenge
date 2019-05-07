@@ -3,6 +3,9 @@ const usersRouter = require("express").Router();
 const usersDb = require("../database/helpers/users-model.js");
 const protected = require("../auth/protected-middleware.js");
 
+// for endpoints beginning with /api/users
+
+
 // ======== GET ALL USERS
 usersRouter.get("/", protected, (req, res) => {
   //res.send("One moment!")
