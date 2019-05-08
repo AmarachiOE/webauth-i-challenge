@@ -3,6 +3,7 @@ const express = require("express");
 const helmet = require("helmet");
 const cors = require("cors");
 const session = require("express-session");
+const KnexSession = require("connect-session-knex")(session); //currying, saves client info to db instead of memory so can login, stop server, start server, and won't have to login again to access /api/users
 
 // Routers
 const usersRouter = require("../users/users-router");
@@ -18,7 +19,12 @@ const sessionConfig = {
     secure: false
   },
   resave: false,
-  saveUninitialized: true
+  saveUninitialized: true,
+  store: new KnexSession({
+    knex: require("../database/dbConfig.js"),
+    createtable: true,
+    clearInterval: 1000 * 60 * 15, // 15 minutes
+  })
 };
 
 // Server
